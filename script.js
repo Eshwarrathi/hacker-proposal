@@ -42,12 +42,19 @@ function showProposal() {
   proposal.style.display = "block";
 }
 
-function accept() {
-  alert("💚 She said YES! System upgraded to LOVE MODE 💚");
-}
-
-function decline() {
-  alert("😅 Okay, no worries. System remains BEST FRIEND MODE.");
+function sendResponse(answer) {
+  fetch('save_response.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'answer=' + encodeURIComponent(answer)
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+  })
+  .catch(err => {
+    alert("Something went wrong 😢");
+  });
 }
 
 typeLine();
