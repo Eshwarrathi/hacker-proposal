@@ -2,19 +2,117 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Terminal Proposal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Question ❤️</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="terminal"></div>
-  <div class="center" id="proposal">
-    <p><strong>Hey ANU,</strong><br><br>
-    We've debugged life together...<br>
-    Now I want to compile a future with you 💚<br><br>
-    <strong>Will you be mine?</strong></p>
-    <button onclick="accept()">Yes 💻</button>
-    <button onclick="decline()">Let me think...</button>
+  <!-- Particle Background -->
+  <div id="particles"></div>
+  
+  <!-- Floating Hearts -->
+  <div id="hearts-container"></div>
+
+  <!-- Main Container -->
+  <div id="main-container">
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="active">
+      <div class="loader-content">
+        <div class="heart-loader">
+          <div class="heart"></div>
+        </div>
+        <div class="loading-text">
+          <span class="typing-text"></span>
+          <span class="cursor">|</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal Animation -->
+    <div id="terminal-section" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="btn-close"></span>
+            <span class="btn-minimize"></span>
+            <span class="btn-maximize"></span>
+          </div>
+          <div class="terminal-title">feelings.exe</div>
+        </div>
+        <div class="terminal-body">
+          <div id="terminal-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Proposal -->
+    <div id="proposal-section" class="hidden">
+      <div class="proposal-card">
+        <div class="proposal-header">
+          <h1 class="glowing-text">My Dearest Detective 💚</h1>
+        </div>
+        
+        <div class="proposal-content">
+          <p class="romantic-text">
+            From the moment our paths crossed,<br>
+            <span class="highlight">you've been the missing piece</span> of my code...<br><br>
+            
+            Every debug session, every late night,<br>
+            every laugh we've shared has led to this moment.<br><br>
+            
+            Together we've solved mysteries,<br>
+            fixed bugs, and hacked through life's challenges.<br><br>
+            
+            Now I want to <span class="highlight">commit</span> to something permanent...<br>
+            <span class="gradient-text">A lifetime with you</span> 💚
+          </p>
+          
+          <div class="question-box">
+            <h2 class="pulse-text">Will you be mine? 💕</h2>
+          </div>
+
+          <div class="button-container">
+            <button class="btn-yes" onclick="handleResponse('yes')">
+              <span class="btn-icon">💚</span>
+              <span class="btn-text">Yes, Forever!</span>
+              <div class="btn-shine"></div>
+            </button>
+            
+            <button class="btn-maybe" onclick="handleResponse('maybe')">
+              <span class="btn-icon">🤔</span>
+              <span class="btn-text">Let me think...</span>
+            </button>
+            
+            <button class="btn-no" onclick="handleResponse('no')" id="no-btn">
+              <span class="btn-icon">😢</span>
+              <span class="btn-text">Not yet...</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Response Messages -->
+    <div id="response-section" class="hidden">
+      <div class="response-card">
+        <div id="response-content"></div>
+        <button class="btn-restart" onclick="restartExperience()">
+          <span>Experience Again ✨</span>
+        </button>
+      </div>
+    </div>
+
   </div>
+
+  <!-- Audio (Optional) -->
+  <audio id="bgMusic" loop>
+    <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-piano-ballad-2604.mp3" type="audio/mpeg">
+  </audio>
 
   <script src="script.js"></script>
 </body>
